@@ -41,6 +41,8 @@
 /*  #defines                                                                 */
 /*****************************************************************************/
 
+#define  long          int                  /* hotfix for 64-bit Linux       */
+
 #define  MAXPROGLEN   10000                 /* max length of Mouse program   */
 #define  STACKSIZE     1024                 /* maximum depth of calc stack   */
 #define  ENVSTACKSIZE  1024                 /* maximum depth of env stack    */

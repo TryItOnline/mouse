@@ -43,6 +43,8 @@
 /*  #defines                                                                 */
 /*****************************************************************************/
 
+#define  long          int                  /* hotfix for 64-bit Linux       */
+
 #define  MAXPROGLEN   10000                 /* max length of Mouse program   */
 #define  MAXPROGLINELEN 132                 /* max length of interactive line*/
 #define  STACKSIZE     1024                 /* maximum depth of calc stack   */
@@ -142,7 +144,7 @@ int          tracing;                       /* tracing on/off flag           */
 int          disaster;                      /* disaster flag; 1=disaster     */
 int          j;                             /* loop index                    */
 char         filename[101];                 /* Mouse source file name        */
-char         format_str[11];                /* printf format string          */
+char         format_str[13];                /* printf format string          */
 long         ntemp;                         /* temporary integer             */
 int          done;                          /* 1=exit interactive mode       */
 char         line[133];                     /* input line                    */
@@ -1818,7 +1820,7 @@ else if (!strcmp(str,"?hex"))               /* &?hex                         */
    {
    fgets(instr, 25, stdin);                 /*         read as a string      */
    chomp(instr);                            /*         remove \n             */
-   sscanf(instr, "%lx", &itemp);            /*         read number           */
+   sscanf(instr, "%x", (unsigned *)&itemp); /*         read number           */
    push((double)itemp);
    }
 
@@ -1826,7 +1828,7 @@ else if (!strcmp(str,"?oct"))               /* &?oct                         */
    {
    fgets(instr, 25, stdin);                 /*         read as a string      */
    chomp(instr);                            /*         remove \n             */
-   sscanf(instr, "%lo", &itemp);            /*         read number           */
+   sscanf(instr, "%o", (unsigned *)&itemp); /*         read number           */
    push((double)itemp);
    }
 
