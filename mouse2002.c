@@ -458,7 +458,7 @@ else                                        /* else calc stack filled up     */
 
 double pop (void)
 {
-double result;                              /* returned stack value          */
+double result = 0.0;                        /* returned stack value          */
 
 if (sp >= 0)                                /* if an item is avail on stack..*/
    {

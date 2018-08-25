@@ -179,7 +179,7 @@ if (!disaster)                              /* if no load problems..         */
    }
 
 /*---------------------------------------------------------------------------*/
-/*  All done.  Return to operating system.
+/*  All done.  Return to operating system.                                   */
 /*---------------------------------------------------------------------------*/
 
 return 0;                                   /* return to operating system    */
@@ -327,7 +327,7 @@ else                                        /* else calc stack filled up     */
 
 int pop (void)
 {
-int result;                                 /* returned stack value          */
+int result = 0;                             /* returned stack value          */
 
 if (sp >= 0)                                /* if an item is avail on stack..*/
    {
